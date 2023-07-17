@@ -6,6 +6,8 @@ except ImportError:
 
 # Use this FILENAME variable to test your function.
 FILENAME = get_data_file_path('messages.log')
+
+
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
 
@@ -13,8 +15,12 @@ def get_shutdown_events(logfile):
     """
     Your docstring here.  Replace the pass keyword below with your implementation
     """
-    pass
+    with open(logfile, 'r') as file:
+        shutdowns = [line for line in file if 'Shutdown initiated' in line]
+    return shutdowns
 
+
+print("Hello")
 
 # >>>> The code below will call your function and print the results
 if __name__ == "__main__":
